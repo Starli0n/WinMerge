@@ -21,7 +21,7 @@ def recordActiveFile(f):
 
 class WinMergeCommand(sublime_plugin.ApplicationCommand):
 	def run(self):
-		cmd_line = '%s /e /ul /ur "%s" "%s"' % (WINMERGE, fileA, fileB)
+		cmd_line = '%s /e /ul /ur "%s" "%s"' % (WINMERGE, fileB, fileA)
 		print "WinMerge command: " + cmd_line
 		Popen(cmd_line)
 
@@ -29,3 +29,4 @@ class WinMergeFileListener(sublime_plugin.EventListener):
 	def on_activated(self, view):
 		if view.file_name() != fileA:
 			recordActiveFile(view.file_name())
+
